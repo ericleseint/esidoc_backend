@@ -1,0 +1,26 @@
+# Installation de GLPI sur docker
+## Création d'un conteneur docker
+
+#### mise en place des extensions php pour le bon fonctionnement
+
+
+[Dockerfile](docker/Dockerfile)
+
+#### construction du conteneur
+
+```-
+docker build -t esidocbackend .
+```
+
+```
+docker run -d -p 80:80 --name esidocbackend -v /c/Users/eric.leseint/developpement/docker/esidocbackend:/var/www/html/ --link mysqlserver:db esidocbackend
+```
+## Connexion en bash sur la machine
+```
+docker exec -it esidocbackend bash
+```
+
+## Connexion au serveur
+```
+http://192.168.99.100/
+```
